@@ -30,42 +30,42 @@ ChartViewBase::ChartViewBase(wxWindow* parent,
     this->SetMenuBar(m_menuBar);
 
     m_menuFile = new wxMenu();
-    m_menuBar->Append(m_menuFile, wxT("Arquivo"));
+    m_menuBar->Append(m_menuFile, wxT("File"));
 
     m_menuItemSaveImage =
-        new wxMenuItem(m_menuFile, wxID_ANY, wxT("Salvar gráfico como imagem"), wxT(""), wxITEM_NORMAL);
+        new wxMenuItem(m_menuFile, wxID_ANY, wxT("Save chart as image"), wxT(""), wxITEM_NORMAL);
     m_menuFile->Append(m_menuItemSaveImage);
 
     m_menuItemSendToClipboard =
-        new wxMenuItem(m_menuFile, wxID_ANY, wxT("Enviar para área de transferência"), wxT(""), wxITEM_NORMAL);
+        new wxMenuItem(m_menuFile, wxID_ANY, wxT("Send to clipboard"), wxT(""), wxITEM_NORMAL);
     m_menuFile->Append(m_menuItemSendToClipboard);
 
-    m_menuItemExportCSV = new wxMenuItem(m_menuFile, wxID_ANY, wxT("Exportar CSV..."), wxT(""), wxITEM_NORMAL);
+    m_menuItemExportCSV = new wxMenuItem(m_menuFile, wxID_ANY, wxT("Export CSV..."), wxT(""), wxITEM_NORMAL);
     m_menuFile->Append(m_menuItemExportCSV);
 
     m_menuFile->AppendSeparator();
 
-    m_menuItemExit = new wxMenuItem(m_menuFile, wxID_ANY, wxT("Sair"), wxT(""), wxITEM_NORMAL);
+    m_menuItemExit = new wxMenuItem(m_menuFile, wxID_ANY, wxT("Exit"), wxT(""), wxITEM_NORMAL);
     m_menuFile->Append(m_menuItemExit);
 
     m_menuView = new wxMenu();
-    m_menuBar->Append(m_menuView, wxT("Visualizar"));
+    m_menuBar->Append(m_menuView, wxT("View"));
 
-    m_menuItemFit = new wxMenuItem(m_menuView, wxID_ANY, wxT("Encaixar"), wxT(""), wxITEM_NORMAL);
+    m_menuItemFit = new wxMenuItem(m_menuView, wxID_ANY, wxT("Fit"), wxT(""), wxITEM_NORMAL);
     m_menuView->Append(m_menuItemFit);
 
     m_menuView->AppendSeparator();
 
-    m_menuItemShowGrid = new wxMenuItem(m_menuView, wxID_ANY, wxT("Mostrar grade"), wxT(""), wxITEM_CHECK);
+    m_menuItemShowGrid = new wxMenuItem(m_menuView, wxID_ANY, wxT("Show grid"), wxT(""), wxITEM_CHECK);
     m_menuView->Append(m_menuItemShowGrid);
 
-    m_menuItemShowLabel = new wxMenuItem(m_menuView, wxID_ANY, wxT("Mostrar legendas"), wxT(""), wxITEM_CHECK);
+    m_menuItemShowLabel = new wxMenuItem(m_menuView, wxID_ANY, wxT("Show lable"), wxT(""), wxITEM_CHECK);
     m_menuView->Append(m_menuItemShowLabel);
 
-    m_menuItemShowCoordinates = new wxMenuItem(m_menuView, wxID_ANY, wxT("Mostrar coordenadas"), wxT(""), wxITEM_CHECK);
+    m_menuItemShowCoordinates = new wxMenuItem(m_menuView, wxID_ANY, wxT("Show coordinates"), wxT(""), wxITEM_CHECK);
     m_menuView->Append(m_menuItemShowCoordinates);
 
-    m_menuItemDarkTheme = new wxMenuItem(m_menuView, wxID_ANY, wxT("Tema escuro"), wxT(""), wxITEM_CHECK);
+    m_menuItemDarkTheme = new wxMenuItem(m_menuView, wxID_ANY, wxT("Dark theme"), wxT(""), wxITEM_CHECK);
     m_menuView->Append(m_menuItemDarkTheme);
 
     wxBoxSizer* boxSizer_lvl1_1 = new wxBoxSizer(wxHORIZONTAL);
@@ -90,21 +90,21 @@ ChartViewBase::ChartViewBase(wxWindow* parent,
 
     boxSizer_lvl2_1->Add(m_pgMgr, 0, 0, WXC_FROM_DIP(5));
 
-    m_pgPropLineProp = m_pgMgr->Append(new wxPropertyCategory(wxT("Propriedades da linha")));
+    m_pgPropLineProp = m_pgMgr->Append(new wxPropertyCategory(wxT("Line properties")));
     m_pgPropLineProp->SetHelpString(wxT(""));
 
-    m_pgPropDraw = m_pgMgr->AppendIn(m_pgPropLineProp, new wxBoolProperty(wxT("Desenhar"), wxPG_LABEL, 1));
+    m_pgPropDraw = m_pgMgr->AppendIn(m_pgPropLineProp, new wxBoolProperty(wxT("Draw"), wxPG_LABEL, 1));
     m_pgPropDraw->SetHelpString(wxT(""));
     m_pgPropDraw->SetEditor(wxT("CheckBox"));
 
-    m_pgProplineThick = m_pgMgr->AppendIn(m_pgPropLineProp, new wxIntProperty(wxT("Espessura"), wxPG_LABEL, 1));
+    m_pgProplineThick = m_pgMgr->AppendIn(m_pgPropLineProp, new wxIntProperty(wxT("Thickness"), wxPG_LABEL, 1));
     m_pgProplineThick->SetHelpString(wxT(""));
     m_pgProplineThick->SetEditor(wxT("TextCtrl"));
 
     m_pgMgrArr.Clear();
     m_pgMgrIntArr.Clear();
     m_pgProplineType =
-        m_pgMgr->AppendIn(m_pgPropLineProp, new wxEnumProperty(wxT("Tipo"), wxPG_LABEL, m_pgMgrArr, m_pgMgrIntArr, 0));
+        m_pgMgr->AppendIn(m_pgPropLineProp, new wxEnumProperty(wxT("Type"), wxPG_LABEL, m_pgMgrArr, m_pgMgrIntArr, 0));
     m_pgProplineType->SetHelpString(wxT(""));
     m_pgProplineType->SetEditor(wxT("Choice"));
 
@@ -113,7 +113,7 @@ ChartViewBase::ChartViewBase(wxWindow* parent,
     m_pgMgrArr.Add(wxT("Y"));
     m_pgMgrArr.Add(wxT("X"));
     m_pgProplineAxis =
-        m_pgMgr->AppendIn(m_pgPropLineProp, new wxEnumProperty(wxT("Eixo"), wxPG_LABEL, m_pgMgrArr, m_pgMgrIntArr, 0));
+        m_pgMgr->AppendIn(m_pgPropLineProp, new wxEnumProperty(wxT("Axis"), wxPG_LABEL, m_pgMgrArr, m_pgMgrIntArr, 0));
     m_pgProplineAxis->SetHelpString(wxT(""));
     m_pgProplineAxis->SetEditor(wxT("Choice"));
 
@@ -121,37 +121,37 @@ ChartViewBase::ChartViewBase(wxWindow* parent,
     m_pgPropChartProp->SetHelpString(wxT(""));
 
     m_pgPropChartTitle =
-        m_pgMgr->AppendIn(m_pgPropChartProp, new wxStringProperty(wxT("Título do gráfico"), wxPG_LABEL, wxT("")));
+        m_pgMgr->AppendIn(m_pgPropChartProp, new wxStringProperty(wxT("Chart title"), wxPG_LABEL, wxT("")));
     m_pgPropChartTitle->SetHelpString(wxT(""));
     m_pgPropChartTitle->SetEditor(wxT("TextCtrl"));
 
     m_pgPropXLabel =
-        m_pgMgr->AppendIn(m_pgPropChartProp, new wxStringProperty(wxT("Texto do eixo X"), wxPG_LABEL, wxT("")));
+        m_pgMgr->AppendIn(m_pgPropChartProp, new wxStringProperty(wxT("X axis label"), wxPG_LABEL, wxT("")));
     m_pgPropXLabel->SetHelpString(wxT(""));
     m_pgPropXLabel->SetEditor(wxT("TextCtrl"));
 
     m_pgPropYLabel =
-        m_pgMgr->AppendIn(m_pgPropChartProp, new wxStringProperty(wxT("Texto do eixo Y"), wxPG_LABEL, wxT("")));
+        m_pgMgr->AppendIn(m_pgPropChartProp, new wxStringProperty(wxT("Y axis label"), wxPG_LABEL, wxT("")));
     m_pgPropYLabel->SetHelpString(wxT(""));
     m_pgPropYLabel->SetEditor(wxT("TextCtrl"));
 
-    m_pgPropMargins = m_pgMgr->AppendIn(m_pgPropChartProp, new wxStringProperty(wxT("Margens"), wxPG_LABEL, wxT("")));
+    m_pgPropMargins = m_pgMgr->AppendIn(m_pgPropChartProp, new wxStringProperty(wxT("Margins"), wxPG_LABEL, wxT("")));
     m_pgPropMargins->SetHelpString(wxT(""));
 
-    m_pgPropMarginsUp = m_pgMgr->AppendIn(m_pgPropMargins, new wxIntProperty(wxT("Cima"), wxPG_LABEL, 20));
+    m_pgPropMarginsUp = m_pgMgr->AppendIn(m_pgPropMargins, new wxIntProperty(wxT("Top"), wxPG_LABEL, 20));
     m_pgPropMarginsUp->SetHelpString(wxT(""));
 
-    m_pgPropMarginsBot = m_pgMgr->AppendIn(m_pgPropMargins, new wxIntProperty(wxT("Baixo"), wxPG_LABEL, 40));
+    m_pgPropMarginsBot = m_pgMgr->AppendIn(m_pgPropMargins, new wxIntProperty(wxT("Bottom"), wxPG_LABEL, 40));
     m_pgPropMarginsBot->SetHelpString(wxT(""));
 
-    m_pgPropMarginsLeft = m_pgMgr->AppendIn(m_pgPropMargins, new wxIntProperty(wxT("Esquerda"), wxPG_LABEL, 60));
+    m_pgPropMarginsLeft = m_pgMgr->AppendIn(m_pgPropMargins, new wxIntProperty(wxT("Left"), wxPG_LABEL, 60));
     m_pgPropMarginsLeft->SetHelpString(wxT(""));
 
-    m_pgPropMarginsRight = m_pgMgr->AppendIn(m_pgPropMargins, new wxIntProperty(wxT("Direita"), wxPG_LABEL, 10));
+    m_pgPropMarginsRight = m_pgMgr->AppendIn(m_pgPropMargins, new wxIntProperty(wxT("Right"), wxPG_LABEL, 10));
     m_pgPropMarginsRight->SetHelpString(wxT(""));
 
     m_pgPropAxisLimit =
-        m_pgMgr->AppendIn(m_pgPropChartProp, new wxStringProperty(wxT("Limite dos eixos"), wxPG_LABEL, wxT("")));
+        m_pgMgr->AppendIn(m_pgPropChartProp, new wxStringProperty(wxT("Axis limit"), wxPG_LABEL, wxT("")));
     m_pgPropAxisLimit->SetHelpString(wxT(""));
 
     m_pgPropXMin = m_pgMgr->AppendIn(m_pgPropAxisLimit, new wxFloatProperty(wxT("X min"), wxPG_LABEL, 0));

@@ -10,7 +10,7 @@
         <label>Arquivo</label>
         <style/>
         <object class="wxMenuItem" name="m_menuItemSaveImage">
-          <label>Salvar gráfico como imagem</label>
+          <label>Save chart as image</label>
           <accel>
             <![CDATA[]]>
           </accel>
@@ -19,7 +19,7 @@
           </help>
         </object>
         <object class="wxMenuItem" name="m_menuItemSendToClipboard">
-          <label>Senviar para área de transferência</label>
+          <label>Send to clipboard</label>
           <accel>
             <![CDATA[]]>
           </accel>
@@ -82,7 +82,7 @@
         </object>
         <object class="wxMenuItem" name="m_menuItemShowCoordinates">
           <checkable>1</checkable>
-          <label>Mostrar coordenadas</label>
+          <label>Show coordinates</label>
           <accel>
             <![CDATA[]]>
           </accel>
@@ -92,7 +92,7 @@
         </object>
         <object class="wxMenuItem" name="m_menuItemDarkTheme">
           <checkable>1</checkable>
-          <label>Tema escuro</label>
+          <label>Dark theme</label>
           <accel>
             <![CDATA[]]>
           </accel>

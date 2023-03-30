@@ -34,16 +34,16 @@ public:
         std::vector<ElementPlotData> plotDataList;
         
         ElementPlotData plotData;
-        plotData.SetName(wxT("Teste"));
+        plotData.SetName(wxT("Test"));
         plotData.SetCurveType(ElementPlotData::CurveType::CT_TEST);
-        plotData.AddData(curvaX, wxT("Curva X"));
-        plotData.AddData(curvaY, wxT("Curva Y"));
+        plotData.AddData(curvaX, wxT("Curve X"));
+        plotData.AddData(curvaY, wxT("Curve Y"));
         plotDataList.push_back(plotData);
-        
-        // Para adicionar novos tipos de curva:
-        // No arquivo "ElementPlotData.h", adicione um novo flag no enum CurveType. DEVE FICA ANTES DO FLAG "NUM_ELEMENTS". Exemplo CT_TESTE
-        // Adicionar o novo tipo de curva no arquivo "ChartView.cpp", próximo da linha 108. Exemplo:
-        //  rootElementName[static_cast<unsigned int>(ElementPlotData::CurveType::CT_TEST)] = wxT("Teste");
+
+        // To add new curve types:
+        // In the "ElementPlotData.h" file, add a new flag in the CurveType enum. MUST BE BEFORE THE "NUM_ELEMENTS" FLAG. Example CT_TESTE
+        // Add the new curve type in the "ChartView.cpp" file, near line 108. Example:
+        // rootElementName[static_cast<unsigned int>(ElementPlotData::CurveType::CT_TEST)] = wxT("Test");
 
         ChartView* cView = new ChartView(nullptr, plotDataList, tempo);
         SetTopWindow(cView);

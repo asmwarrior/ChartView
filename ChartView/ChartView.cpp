@@ -31,7 +31,7 @@ ChartView::ChartView(wxWindow* parent, std::vector<ElementPlotData> epdList, std
     m_menuItemDarkTheme->Check(m_darkTheme);
 
     // Create color property.
-    m_pgPropColor = m_pgMgr->Insert(m_pgPropLineProp, 1, new wxColourProperty(wxT("Cor")));
+    m_pgPropColor = m_pgMgr->Insert(m_pgPropLineProp, 1, new wxColourProperty(wxT("Color")));
     m_pgPropColor->SetEditor(wxT("ChoiceAndButton"));
     m_pgPropColor->SetValue(static_cast<wxVariant>(static_cast<wxAny>(*wxBLACK)));
 
@@ -42,12 +42,12 @@ ChartView::ChartView(wxWindow* parent, std::vector<ElementPlotData> epdList, std
     m_pgMgr->Collapse(m_pgPropAxisLimit);
 
     // Add line type choices
-    m_pgProplineType->AddChoice(wxT("Sólido"), wxPENSTYLE_SOLID);
-    m_pgProplineType->AddChoice(wxT("Pontilhado"), wxPENSTYLE_DOT);
-    m_pgProplineType->AddChoice(wxT("Tracejado"), wxPENSTYLE_SHORT_DASH);
-    m_pgProplineType->AddChoice(wxT("Traço e ponto"), wxPENSTYLE_DOT_DASH);
-    m_pgProplineType->AddChoice(wxT("Cruz"), wxPENSTYLE_CROSS_HATCH);
-    m_pgProplineType->AddChoice(wxT("Cruz diagonal"), wxPENSTYLE_CROSSDIAG_HATCH);
+    m_pgProplineType->AddChoice(wxT("Solid"), wxPENSTYLE_SOLID);
+    m_pgProplineType->AddChoice(wxT("Dotted"), wxPENSTYLE_DOT);
+    m_pgProplineType->AddChoice(wxT("Dashed"), wxPENSTYLE_SHORT_DASH);
+    m_pgProplineType->AddChoice(wxT("Dash and dot"), wxPENSTYLE_DOT_DASH);
+    m_pgProplineType->AddChoice(wxT("Cross"), wxPENSTYLE_CROSS_HATCH);
+    m_pgProplineType->AddChoice(wxT("Cross diagonal"), wxPENSTYLE_CROSSDIAG_HATCH);
 
     SetMPWindow();
     GetSizer()->Add(m_mpWindow, 1, wxEXPAND, WXC_FROM_DIP(5));
@@ -97,15 +97,15 @@ void ChartView::SetMPWindow()
 void ChartView::SetTreectrl()
 {
     wxTreeItemId rootID = m_treeCtrl->AddRoot(wxT("root"));
-    m_treeTimeID = m_treeCtrl->AppendItem(rootID, wxT("Tempo"));
+    m_treeTimeID = m_treeCtrl->AppendItem(rootID, wxT("Time"));
     m_treeCtrl->SetItemTextColour(m_treeTimeID, *wxRED);
 
     bool firstElement[static_cast<unsigned int>(ElementPlotData::CurveType::NUM_ELEMENTS)];
     for(unsigned int i = 0; i < static_cast<unsigned int>(ElementPlotData::CurveType::NUM_ELEMENTS); ++i) firstElement[i] = true;
 
     wxString rootElementName[static_cast<unsigned int>(ElementPlotData::CurveType::NUM_ELEMENTS)];
-    // Adicionar novos tipos de curva aqui:
-    rootElementName[static_cast<unsigned int>(ElementPlotData::CurveType::CT_TEST)] = wxT("Teste");
+    // Add new curve types here:
+    rootElementName[static_cast<unsigned int>(ElementPlotData::CurveType::CT_TEST)] = wxT("Test");
 
     wxTreeItemId rootItemID[static_cast<unsigned int>(ElementPlotData::CurveType::NUM_ELEMENTS)];
 
@@ -130,7 +130,7 @@ void ChartView::OnPropertyGridChange(wxPropertyGridEvent& event)
 
     if(m_treeCtrl->GetSelection()) {
         if(PlotData* data = dynamic_cast<PlotData*>(m_treeCtrl->GetItemData(m_treeCtrl->GetSelection()))) {
-            if(event.GetPropertyName() == wxT("Desenhar")) {
+            if(event.GetPropertyName() == wxT("Draw")) {
                 bool isPlotting = m_pgPropDraw->GetValue();
                 data->SetPlot(isPlotting);
                 if(isPlotting) {
@@ -142,15 +142,15 @@ void ChartView::OnPropertyGridChange(wxPropertyGridEvent& event)
                     m_treeCtrl->SetItemBold(m_treeCtrl->GetSelection(), false);
                 }
                 fit = true;
-            } else if(event.GetPropertyName() == wxT("Cor")) {
+            } else if(event.GetPropertyName() == wxT("Color")) {
                 wxColour colour;
                 colour << m_pgPropColor->GetValue();
                 data->SetColour(colour);
-            } else if(event.GetPropertyName() == wxT("Espessura")) {
+            } else if(event.GetPropertyName() == wxT("Thickness")) {
                 data->SetThick(m_pgProplineThick->GetValue().GetInteger());
-            } else if(event.GetPropertyName() == wxT("Tipo")) {
+            } else if(event.GetPropertyName() == wxT("Type")) {
                 data->SetPenType(static_cast<wxPenStyle>(m_pgProplineType->GetValue().GetInteger()));
-            } else if(event.GetPropertyName() == wxT("Eixo")) {
+            } else if(event.GetPropertyName() == wxT("Axis")) {
                 int axis = m_pgProplineAxis->GetValue().GetInteger();
                 if(axis == 1) {  // Y
                     // All lines to Y axis
@@ -165,12 +165,12 @@ void ChartView::OnPropertyGridChange(wxPropertyGridEvent& event)
         }
     }
 
-    if(event.GetPropertyName() == wxT("Margens")) {
+    if(event.GetPropertyName() == wxT("Margins")) {
         m_mpWindow->SetMargins(m_pgPropMarginsUp->GetValue().GetLong(), m_pgPropMarginsRight->GetValue().GetLong(),
                                m_pgPropMarginsBot->GetValue().GetLong(), m_pgPropMarginsLeft->GetValue().GetLong());
         m_mpWindow->UpdateAll();
     }
-    if(event.GetPropertyName() == wxT("Limite dos eixos")) {
+    if(event.GetPropertyName() == wxT("Axis limit")) {
         m_mpWindow->Fit(m_pgPropXMin->GetValue().GetDouble(), m_pgPropXMax->GetValue().GetDouble(),
                         m_pgPropYMin->GetValue().GetDouble(), m_pgPropYMax->GetValue().GetDouble());
         m_mpWindow->UpdateAll();
@@ -213,7 +213,7 @@ void ChartView::OnMenuSaveImageClick(wxCommandEvent& event)
     memDC.SelectObject(wxNullBitmap);
 
     wxFileDialog saveFileDialog(
-        this, wxT("Salvar imagem"), "", "",
+        this, wxT("Save image"), "", "",
         "PNG image file (*.png)|*.png|Bitmap image file (*.bmp)|*.bmp|JPEG image file (*.jpg)|*.jpg",
         wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
     if(saveFileDialog.ShowModal() == wxID_CANCEL) return;
@@ -249,11 +249,11 @@ void ChartView::OnMenuSendClipClick(wxCommandEvent& event)
         wxTheClipboard->SetData(new wxBitmapDataObject(screenshot));
         wxTheClipboard->Close();
 
-        wxMessageDialog msgDialog(this, wxT("Gráfico enciado para a área de transferência"), wxT("Informação"), wxOK | wxICON_INFORMATION,
+        wxMessageDialog msgDialog(this, wxT("Graphic send to clipboard"), wxT("Information"), wxOK | wxICON_INFORMATION,
                                   wxDefaultPosition);
         msgDialog.ShowModal();
     } else {
-        wxMessageDialog msgDialog(this, wxT("Não foi possível enviar para a área de transferência"), wxT("Erro"), wxOK | wxICON_ERROR,
+        wxMessageDialog msgDialog(this, wxT("Unable to send to clipboard."), wxT("Error"), wxOK | wxICON_ERROR,
                                   wxDefaultPosition);
         msgDialog.ShowModal();
     }
@@ -473,7 +473,7 @@ void ChartView::OnMenuExpCSVClick(wxCommandEvent& event)
     wxTextFile csvFile(saveFileDialog.GetPath());
     if(!csvFile.Create()) {
         if(!csvFile.Open()) {
-            wxMessageDialog msgDialog(this, wxT("Não foi possível abrir ou criar o arquivo selecionado."), wxT("Erro"),
+            wxMessageDialog msgDialog(this, wxT("Unable to open or create the selected file."), wxT("Error"),
                                       wxOK | wxCENTRE | wxICON_ERROR);
             msgDialog.ShowModal();
         }
