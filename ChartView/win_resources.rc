@@ -2,7 +2,7 @@ aaaa ICON appIcon.ico
 
 #include "wx/msw/wx.rc"
 #ifdef WIN64
-1 24 "wx/msw/amd64.manifest"
+1 24 "wx/msw/wx_dpi_aware_pmv2.manifest"
 #else
 1 24 "wx/msw/wx.manifest"
 #endif
