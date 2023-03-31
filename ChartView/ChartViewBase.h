@@ -78,74 +78,24 @@ protected:
     wxPGProperty* m_pgPropYMax;
 
 protected:
-    virtual void OnMenuSaveImageClick(wxCommandEvent& event)
-    {
-        event.Skip();
-    }
-    virtual void OnMenuSendClipClick(wxCommandEvent& event)
-    {
-        event.Skip();
-    }
-    virtual void OnMenuExpCSVClick(wxCommandEvent& event)
-    {
-        event.Skip();
-    }
-    virtual void OnMenuExitClick(wxCommandEvent& event)
-    {
-        event.Skip();
-    }
-    virtual void OnMenuFitClick(wxCommandEvent& event)
-    {
-        event.Skip();
-    }
-    virtual void OnMenuShowGridClick(wxCommandEvent& event)
-    {
-        event.Skip();
-    }
-    virtual void OnMenuShowLabelClick(wxCommandEvent& event)
-    {
-        event.Skip();
-    }
-    virtual void OnMenuShowCoordinatesClick(wxCommandEvent& event)
-    {
-        event.Skip();
-    }
-    virtual void OnMenuDarkThemeClick(wxCommandEvent& event)
-    {
-        event.Skip();
-    }
-    virtual void OnTreeItemActivated(wxTreeEvent& event)
-    {
-        event.Skip();
-    }
-    virtual void OnTreeItemSelectionChanged(wxTreeEvent& event)
-    {
-        event.Skip();
-    }
-    virtual void OnPropertyGridChange(wxPropertyGridEvent& event)
-    {
-        event.Skip();
-    }
+    virtual void OnMenuSaveImageClick(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnMenuSendClipClick(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnMenuExpCSVClick(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnMenuExitClick(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnMenuFitClick(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnMenuShowGridClick(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnMenuShowLabelClick(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnMenuShowCoordinatesClick(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnMenuDarkThemeClick(wxCommandEvent& event) { event.Skip(); }
+    virtual void OnTreeItemActivated(wxTreeEvent& event) { event.Skip(); }
+    virtual void OnTreeItemSelectionChanged(wxTreeEvent& event) { event.Skip(); }
+    virtual void OnPropertyGridChange(wxPropertyGridEvent& event) { event.Skip(); }
 
 public:
-    wxMenuBar* GetMenuBar()
-    {
-        return m_menuBar;
-    }
-    wxTreeCtrl* GetTreeCtrl()
-    {
-        return m_treeCtrl;
-    }
-    wxPropertyGridManager* GetPgMgr()
-    {
-        return m_pgMgr;
-    }
-    ChartViewBase(wxWindow* parent,
-        wxWindowID id = wxID_ANY,
-        const wxString& title = wxT("Chart viewer"),
-        const wxPoint& pos = wxDefaultPosition,
-        const wxSize& size = wxSize(-1, -1),
-        long style = wxDEFAULT_FRAME_STYLE);
+    wxMenuBar* GetMenuBar() { return m_menuBar; }
+    wxTreeCtrl* GetTreeCtrl() { return m_treeCtrl; }
+    wxPropertyGridManager* GetPgMgr() { return m_pgMgr; }
+    ChartViewBase(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Chart viewer"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(-1,-1), long style = wxDEFAULT_FRAME_STYLE);
     virtual ~ChartViewBase();
 };
 

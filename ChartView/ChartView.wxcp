@@ -210,7 +210,7 @@
 								}, {
 									"type":	"string",
 									"m_label":	"Label:",
-									"m_value":	"Arquivo"
+									"m_value":	"File"
 								}],
 							"m_events":	[],
 							"m_children":	[{
@@ -232,7 +232,7 @@
 										}, {
 											"type":	"string",
 											"m_label":	"Label:",
-											"m_value":	"Salvar gráfico como imagem"
+											"m_value":	"Save chart as image"
 										}, {
 											"type":	"string",
 											"m_label":	"Shortcut:",
@@ -258,7 +258,6 @@
 									"m_events":	[{
 											"m_eventName":	"wxEVT_COMMAND_MENU_SELECTED",
 											"m_eventClass":	"wxCommandEvent",
-											"m_eventHandler":	"wxCommandEventHandler",
 											"m_functionNameAndSignature":	"OnMenuSaveImageClick(wxCommandEvent& event)",
 											"m_description":	"Menu item has been clicked",
 											"m_noBody":	false
@@ -283,7 +282,7 @@
 										}, {
 											"type":	"string",
 											"m_label":	"Label:",
-											"m_value":	"Enviar para área de transferência"
+											"m_value":	"Send to clipboard"
 										}, {
 											"type":	"string",
 											"m_label":	"Shortcut:",
@@ -309,7 +308,6 @@
 									"m_events":	[{
 											"m_eventName":	"wxEVT_COMMAND_MENU_SELECTED",
 											"m_eventClass":	"wxCommandEvent",
-											"m_eventHandler":	"wxCommandEventHandler",
 											"m_functionNameAndSignature":	"OnMenuSendClipClick(wxCommandEvent& event)",
 											"m_description":	"Menu item has been clicked",
 											"m_noBody":	false
@@ -334,7 +332,7 @@
 										}, {
 											"type":	"string",
 											"m_label":	"Label:",
-											"m_value":	"Exportar CSV..."
+											"m_value":	"Export CSV..."
 										}, {
 											"type":	"string",
 											"m_label":	"Shortcut:",
@@ -360,7 +358,6 @@
 									"m_events":	[{
 											"m_eventName":	"wxEVT_COMMAND_MENU_SELECTED",
 											"m_eventClass":	"wxCommandEvent",
-											"m_eventHandler":	"wxCommandEventHandler",
 											"m_functionNameAndSignature":	"OnMenuExpCSVClick(wxCommandEvent& event)",
 											"m_description":	"Menu item has been clicked",
 											"m_noBody":	false
@@ -429,7 +426,7 @@
 										}, {
 											"type":	"string",
 											"m_label":	"Label:",
-											"m_value":	"Sair"
+											"m_value":	"Exit"
 										}, {
 											"type":	"string",
 											"m_label":	"Shortcut:",
@@ -455,7 +452,6 @@
 									"m_events":	[{
 											"m_eventName":	"wxEVT_COMMAND_MENU_SELECTED",
 											"m_eventClass":	"wxCommandEvent",
-											"m_eventHandler":	"wxCommandEventHandler",
 											"m_functionNameAndSignature":	"OnMenuExitClick(wxCommandEvent& event)",
 											"m_description":	"Menu item has been clicked",
 											"m_noBody":	false
@@ -477,7 +473,7 @@
 								}, {
 									"type":	"string",
 									"m_label":	"Label:",
-									"m_value":	"Visualizar"
+									"m_value":	"View"
 								}],
 							"m_events":	[],
 							"m_children":	[{
@@ -499,7 +495,7 @@
 										}, {
 											"type":	"string",
 											"m_label":	"Label:",
-											"m_value":	"Encaixar"
+											"m_value":	"Fit"
 										}, {
 											"type":	"string",
 											"m_label":	"Shortcut:",
@@ -525,7 +521,6 @@
 									"m_events":	[{
 											"m_eventName":	"wxEVT_COMMAND_MENU_SELECTED",
 											"m_eventClass":	"wxCommandEvent",
-											"m_eventHandler":	"wxCommandEventHandler",
 											"m_functionNameAndSignature":	"OnMenuFitClick(wxCommandEvent& event)",
 											"m_description":	"Menu item has been clicked",
 											"m_noBody":	false
@@ -594,7 +589,7 @@
 										}, {
 											"type":	"string",
 											"m_label":	"Label:",
-											"m_value":	"Mostrar grade"
+											"m_value":	"Show grid"
 										}, {
 											"type":	"string",
 											"m_label":	"Shortcut:",
@@ -620,7 +615,6 @@
 									"m_events":	[{
 											"m_eventName":	"wxEVT_COMMAND_MENU_SELECTED",
 											"m_eventClass":	"wxCommandEvent",
-											"m_eventHandler":	"wxCommandEventHandler",
 											"m_functionNameAndSignature":	"OnMenuShowGridClick(wxCommandEvent& event)",
 											"m_description":	"Menu item has been clicked",
 											"m_noBody":	false
@@ -645,7 +639,7 @@
 										}, {
 											"type":	"string",
 											"m_label":	"Label:",
-											"m_value":	"Mostrar legendas"
+											"m_value":	"Show lable"
 										}, {
 											"type":	"string",
 											"m_label":	"Shortcut:",
@@ -671,7 +665,6 @@
 									"m_events":	[{
 											"m_eventName":	"wxEVT_COMMAND_MENU_SELECTED",
 											"m_eventClass":	"wxCommandEvent",
-											"m_eventHandler":	"wxCommandEventHandler",
 											"m_functionNameAndSignature":	"OnMenuShowLabelClick(wxCommandEvent& event)",
 											"m_description":	"Menu item has been clicked",
 											"m_noBody":	false
@@ -696,7 +689,7 @@
 										}, {
 											"type":	"string",
 											"m_label":	"Label:",
-											"m_value":	"Mostrar coordenadas"
+											"m_value":	"Show coordinates"
 										}, {
 											"type":	"string",
 											"m_label":	"Shortcut:",
@@ -722,7 +715,6 @@
 									"m_events":	[{
 											"m_eventName":	"wxEVT_COMMAND_MENU_SELECTED",
 											"m_eventClass":	"wxCommandEvent",
-											"m_eventHandler":	"wxCommandEventHandler",
 											"m_functionNameAndSignature":	"OnMenuShowCoordinatesClick(wxCommandEvent& event)",
 											"m_description":	"Menu item has been clicked",
 											"m_noBody":	false
@@ -747,7 +739,7 @@
 										}, {
 											"type":	"string",
 											"m_label":	"Label:",
-											"m_value":	"Tema escuro"
+											"m_value":	"Dark theme"
 										}, {
 											"type":	"string",
 											"m_label":	"Shortcut:",
@@ -773,7 +765,6 @@
 									"m_events":	[{
 											"m_eventName":	"wxEVT_COMMAND_MENU_SELECTED",
 											"m_eventClass":	"wxCommandEvent",
-											"m_eventHandler":	"wxCommandEventHandler",
 											"m_functionNameAndSignature":	"OnMenuDarkThemeClick(wxCommandEvent& event)",
 											"m_description":	"Menu item has been clicked",
 											"m_noBody":	false
@@ -802,6 +793,10 @@
 							"m_label":	"Style:",
 							"m_value":	""
 						}, {
+							"type":	"bool",
+							"m_label":	"Keep as a class member",
+							"m_value":	false
+						}, {
 							"type":	"choice",
 							"m_label":	"Orientation:",
 							"m_selection":	1,
@@ -828,6 +823,10 @@
 									"type":	"string",
 									"m_label":	"Style:",
 									"m_value":	""
+								}, {
+									"type":	"bool",
+									"m_label":	"Keep as a class member",
+									"m_value":	false
 								}, {
 									"type":	"choice",
 									"m_label":	"Orientation:",
@@ -903,14 +902,12 @@
 									"m_events":	[{
 											"m_eventName":	"wxEVT_COMMAND_TREE_ITEM_ACTIVATED",
 											"m_eventClass":	"wxTreeEvent",
-											"m_eventHandler":	"wxTreeEventHandler",
 											"m_functionNameAndSignature":	"OnTreeItemActivated(wxTreeEvent& event)",
 											"m_description":	"An item has been activated (e.g. double clicked).",
 											"m_noBody":	false
 										}, {
 											"m_eventName":	"wxEVT_COMMAND_TREE_SEL_CHANGED",
 											"m_eventClass":	"wxTreeEvent",
-											"m_eventHandler":	"wxTreeEventHandler",
 											"m_functionNameAndSignature":	"OnTreeItemSelectionChanged(wxTreeEvent& event)",
 											"m_description":	"Selection has changed.",
 											"m_noBody":	false
@@ -992,7 +989,6 @@
 									"m_events":	[{
 											"m_eventName":	"wxEVT_PG_CHANGED",
 											"m_eventClass":	"wxPropertyGridEvent",
-											"m_eventHandler":	"wxPropertyGridEventHandler",
 											"m_functionNameAndSignature":	"OnPropertyGridChange(wxPropertyGridEvent& event)",
 											"m_description":	"Respond to wxEVT_PG_CHANGED event, generated when property value has been changed by the user",
 											"m_noBody":	false
@@ -1012,7 +1008,7 @@
 												}, {
 													"type":	"string",
 													"m_label":	"Label:",
-													"m_value":	"Propriedades da linha"
+													"m_value":	"Line properties"
 												}, {
 													"type":	"multi-string",
 													"m_label":	"Tooltip:",
@@ -1076,7 +1072,7 @@
 														}, {
 															"type":	"string",
 															"m_label":	"Label:",
-															"m_value":	"Desenhar"
+															"m_value":	"Draw"
 														}, {
 															"type":	"multi-string",
 															"m_label":	"Tooltip:",
@@ -1141,7 +1137,7 @@
 														}, {
 															"type":	"string",
 															"m_label":	"Label:",
-															"m_value":	"Espessura"
+															"m_value":	"Thickness"
 														}, {
 															"type":	"multi-string",
 															"m_label":	"Tooltip:",
@@ -1206,7 +1202,7 @@
 														}, {
 															"type":	"string",
 															"m_label":	"Label:",
-															"m_value":	"Tipo"
+															"m_value":	"Type"
 														}, {
 															"type":	"multi-string",
 															"m_label":	"Tooltip:",
@@ -1271,7 +1267,7 @@
 														}, {
 															"type":	"string",
 															"m_label":	"Label:",
-															"m_value":	"Eixo"
+															"m_value":	"Axis"
 														}, {
 															"type":	"multi-string",
 															"m_label":	"Tooltip:",
@@ -1401,7 +1397,7 @@
 														}, {
 															"type":	"string",
 															"m_label":	"Label:",
-															"m_value":	"Título do gráfico"
+															"m_value":	"Chart title"
 														}, {
 															"type":	"multi-string",
 															"m_label":	"Tooltip:",
@@ -1466,7 +1462,7 @@
 														}, {
 															"type":	"string",
 															"m_label":	"Label:",
-															"m_value":	"Texto do eixo X"
+															"m_value":	"X axis label"
 														}, {
 															"type":	"multi-string",
 															"m_label":	"Tooltip:",
@@ -1531,7 +1527,7 @@
 														}, {
 															"type":	"string",
 															"m_label":	"Label:",
-															"m_value":	"Texto do eixo Y"
+															"m_value":	"Y axis label"
 														}, {
 															"type":	"multi-string",
 															"m_label":	"Tooltip:",
@@ -1596,7 +1592,7 @@
 														}, {
 															"type":	"string",
 															"m_label":	"Label:",
-															"m_value":	"Margens"
+															"m_value":	"Margins"
 														}, {
 															"type":	"multi-string",
 															"m_label":	"Tooltip:",
@@ -1660,7 +1656,7 @@
 																}, {
 																	"type":	"string",
 																	"m_label":	"Label:",
-																	"m_value":	"Cima"
+																	"m_value":	"Top"
 																}, {
 																	"type":	"multi-string",
 																	"m_label":	"Tooltip:",
@@ -1725,7 +1721,7 @@
 																}, {
 																	"type":	"string",
 																	"m_label":	"Label:",
-																	"m_value":	"Baixo"
+																	"m_value":	"Bottom"
 																}, {
 																	"type":	"multi-string",
 																	"m_label":	"Tooltip:",
@@ -1790,7 +1786,7 @@
 																}, {
 																	"type":	"string",
 																	"m_label":	"Label:",
-																	"m_value":	"Esquerda"
+																	"m_value":	"Left"
 																}, {
 																	"type":	"multi-string",
 																	"m_label":	"Tooltip:",
@@ -1855,7 +1851,7 @@
 																}, {
 																	"type":	"string",
 																	"m_label":	"Label:",
-																	"m_value":	"Direita"
+																	"m_value":	"Right"
 																}, {
 																	"type":	"multi-string",
 																	"m_label":	"Tooltip:",
@@ -1921,7 +1917,7 @@
 														}, {
 															"type":	"string",
 															"m_label":	"Label:",
-															"m_value":	"Limite dos eixos"
+															"m_value":	"Axis limit"
 														}, {
 															"type":	"multi-string",
 															"m_label":	"Tooltip:",

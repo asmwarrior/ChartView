@@ -44,6 +44,6 @@ void wxCE3EBInitBitmapResources()
         else wxFileSystem::AddHandler(new wxMemoryFSHandlerBase);
     }
 
-    XRC_ADD_FILE(wxT("XRC_resource/ChartViewBitmaps.cpp$C__Users_Pichau_Documents_GitHub_ChartView_ChartView_ChartView_ChartViewBitmaps.xrc"), xml_res_file_0, xml_res_size_0, wxT("text/xml"));
-    wxXmlResource::Get()->Load(wxT("memory:XRC_resource/ChartViewBitmaps.cpp$C__Users_Pichau_Documents_GitHub_ChartView_ChartView_ChartView_ChartViewBitmaps.xrc"));
+    XRC_ADD_FILE(wxT("XRC_resource/ChartViewBitmaps.cpp$F__code_ChartView_ChartView_ChartViewBitmaps.xrc"), xml_res_file_0, xml_res_size_0, wxT("text/xml"));
+    wxXmlResource::Get()->Load(wxT("memory:XRC_resource/ChartViewBitmaps.cpp$F__code_ChartView_ChartView_ChartViewBitmaps.xrc"));
 }
